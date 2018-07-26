@@ -1,11 +1,7 @@
 <?php
-    if($conexao = mysqli_connect('localhost', 'root', '')){
-        mysqli_select_db($conexao, 'dbtarefa');
-    } else {
-        echo "<script>
-            alert('Erro ao conectar com o banco de dados. Contate o Administrador do sistema');
-        </script>";
-    }
+    include("conexao.php");
+    $conexao = conectar();
+    
     session_start();
     $id="";
     $titulo = "";
