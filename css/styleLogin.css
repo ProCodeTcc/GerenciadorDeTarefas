@@ -1,0 +1,112 @@
+body{
+    
+	margin:0px;
+	padding:0px;
+    background-color:#b4e2b3;
+    background-attachment:fixed;
+	
+}
+
+header{
+    
+    margin:0px;
+	padding:10px;
+    background-color: #000000;    
+    background-attachment:fixed;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+#centro{
+    
+    width: 300px;
+    height: 200px;
+    font-size: 40px;
+    text-decoration-color: #ffffff;
+    font-style: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+#titulo{
+    
+    font-size: 50px;
+    color: #ffffff;
+    font-style: bold;
+    font-style: bold;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#subtela{
+    
+    margin-left: auto;
+    margin-right: auto;    
+    width: 1000px;
+    height: 545px;
+    background-color: azure;
+    padding: 100px;
+    
+}
+
+#login{
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 400px;
+    margin-top: 100px;
+    background-color:darkgreen ;
+    border-radius: 80px;
+    
+}
+
+.cadastro{
+    
+    width: 100px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: bold;
+    text-decoration-color: white;
+    padding: 50px;
+    font-style: bold;
+    font-size: 20px;
+    
+}
+
+.input{
+     border-radius: 80px;
+}
+
+#dados{
+    
+    width: 100px;
+    height: 20px;
+    background-color: beige;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: bold;
+    font-size: 20px;   
+    margin-top: 5px;
+    
+}
+
+#button{
+    
+    width: 100px;
+    height: 20px;
+    font-style: bold;
+    font-size: 20px;
+    border-radius: 40px;
+    
+}
+
+#botao{    
+    border-radius: 40px;    
+}
+
