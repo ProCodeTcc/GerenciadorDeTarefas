@@ -1,34 +1,51 @@
-<?php 
+<?php
+    require_once "verificacao.php";
+    //conectando com o banco
+    include ("conexao.php");
+    $conexao = conectar();
 
-include ("conexao.php");
+    if (isset($_GET['modo'])) {
+        $modo = $_GET['modo'];
+        if ($modo == 'sair') {
+            session_destroy();
+            header('location:index.php');
+        }
+    }
 
-$conexao = conectar();
+if(isset($_POST["btn"])){
 
+    // session_start();
+    //resgatando as variaveis dos input
+    $email = $_POST["txtemail"];
+    $senha = $_POST["txtsenha"];
 
-
-if(isset($_GET["btn"])){
-    $email = $_GET["txtemail"];
-    $senha = $_GET["txtsenha"];
-    
     $sql = "select * from tbl_usuario where email = '".$email."' and senha = '".$senha."'";
-    
+
     $retorno = mysqli_query($conexao, $sql);
-    if($usuario = mysqli_fetch_assoc($retorno)){
-        
-    }   
-    
+    if($usuario = mysqli_fetch_array($retorno)){
+        $nome = $usuario['nome'];
+        $email = $usuario['email'];
+        $senha = $usuario['senha'];
+
+        $_SESSION['nome'] = $nome;
+        $_SESSION['email'] = $email;
+        $_SESSION['senha'] = $senha;
+        header("location:home.php");
+    } else {
+        header("location:index.php");
+    }
+
 }
 
 ?>
-
 <html>
     <head>
         <title> Projeto1 </title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <meta charset="utf-8">        
+        <meta charset="utf-8">
     </head>
     <body>
-        
+
         <header>
             <div id="centro">
                 <div id="titulo">
@@ -36,10 +53,10 @@ if(isset($_GET["btn"])){
                 </div>
             </div>
         </header>
-    
+
             <div id="subtela">
-                
-                <form method="get">
+
+                <form method="post">
                     <div id="login">
                         <div class="cadastro">
                             Usuário:
@@ -60,9 +77,9 @@ if(isset($_GET["btn"])){
                             <a id="link" href="cadastro.php">Quero me cadastrar</a>
                         </div>
                     </div>'
-                </form>                
+                </form>
             </div>
-        
-        
+
+
     </body>
 </html>

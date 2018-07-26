@@ -1,8 +1,9 @@
 <?php
+    // require_once "verificacao.php";
     include("conexao.php");
     $conexao = conectar();
-    
     session_start();
+
     $id="";
     $titulo = "";
     $descricao = "";
@@ -55,6 +56,12 @@
   <body>
     <header>
       Gerenciador de Tarefas
+      <div class="informacoes">
+          Bem Vindo, <?php echo $_SESSION['nome']; ?>
+          <p class="sair">
+              <a href="index.php?modo=sair">Sair</a>
+          </p>
+      </div>
     </header>
     <main>
       <div class="espacamento"></div>
@@ -68,7 +75,7 @@
                     <div class="tituloContainer">
                         Titulo
                     </div>
-                    <input type="text" name="txtTitulo" value="<?php echo $titulo; ?>" class="input" required>
+                    <input type="date" name="txtTitulo" value="<?php echo $titulo; ?>" class="input" required>
                 </div>
                 <div class="campos">
                     <div class="tituloContainer">
