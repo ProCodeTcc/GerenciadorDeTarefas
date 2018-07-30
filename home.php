@@ -3,6 +3,8 @@
     include("conexao.php");
     $conexao = conectar();
     session_start();
+    require_once "verificacao.php";
+
 
     $id="";
     $titulo = "";
@@ -44,6 +46,17 @@
             }
         }
     }
+
+    function sair() {
+        if (isset($_GET['modo'])) {
+            $modo = $_GET['modo'];
+            if ($modo == 'sair') {
+                session_destroy();
+                header('location:index.php');
+            }
+        }
+    }
+
  ?>
 
 <!DOCTYPE html>
@@ -59,7 +72,7 @@
       <div class="informacoes">
           Bem Vindo, <?php echo $_SESSION['nome']; ?>
           <p class="sair">
-              <a href="index.php?modo=sair">Sair</a>
+              <a href="home.php?modo=sair" <?php sair() ?>>Sair</a>
           </p>
       </div>
     </header>
@@ -75,7 +88,7 @@
                     <div class="tituloContainer">
                         Titulo
                     </div>
-                    <input type="date" name="txtTitulo" value="<?php echo $titulo; ?>" class="input" required>
+                    <input type="text" name="txtTitulo" value="<?php echo $titulo; ?>" class="input" required>
                 </div>
                 <div class="campos">
                     <div class="tituloContainer">

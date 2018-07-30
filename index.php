@@ -1,23 +1,14 @@
 <?php
-    require_once "verificacao.php";
     //conectando com o banco
     include ("conexao.php");
     $conexao = conectar();
 
-    if (isset($_GET['modo'])) {
-        $modo = $_GET['modo'];
-        if ($modo == 'sair') {
-            session_destroy();
-            header('location:index.php');
-        }
-    }
+if(isset($_GET["btnEntrar"])){
 
-if(isset($_POST["btn"])){
-
-    // session_start();
+    session_start();
     //resgatando as variaveis dos input
-    $email = $_POST["txtemail"];
-    $senha = $_POST["txtsenha"];
+    $email = $_GET["txtEmail"];
+    $senha = $_GET["txtSenha"];
 
     $sql = "select * from tbl_usuario where email = '".$email."' and senha = '".$senha."'";
 
@@ -38,9 +29,10 @@ if(isset($_POST["btn"])){
 }
 
 ?>
+
 <html>
     <head>
-        <title> Projeto1 </title>
+        <title> Entrar | Gerenciador de Tarefas </title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <meta charset="utf-8">
     </head>
@@ -56,22 +48,22 @@ if(isset($_POST["btn"])){
 
             <div id="subtela">
 
-                <form method="post">
+                <form name="frmLogin" action="index.php" method="get">
                     <div id="login">
                         <div class="cadastro">
                             Usuário:
                             <div class="dados">
-                                <input class="input" type="text" name="txtemail" >
+                                <input class="input" type="text" name="txtEmail">
                             </div>
                         </div>
                         <div class="cadastro">
                             Senha:
                             <div class="dados">
-                                <input class="input" type="text" name="txtsenha" >
+                                <input class="input" type="password" name="txtSenha">
                             </div>
                         </div>
                         <div class="cadastro">
-                            <button id="botao" type="submit" name="btn" value="entrar">Entrar</button>
+                            <input id="botao" type="submit" name="btnEntrar" value="entrar"/>
                         </div>
                         <div id="referencia">
                             <a id="link" href="cadastro.php">Quero me cadastrar</a>

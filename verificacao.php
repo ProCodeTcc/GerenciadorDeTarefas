@@ -1,7 +1,7 @@
 <?php
-    session_start();
+    // session_start();
 
-    if((isset ($_SESSION['email']) == false) || (isset($_SESSION['senha']) == false)) {
+    if((isset ($_SESSION['email']) == "") || (isset($_SESSION['senha']) == "")) {
         session_destroy();
         header("location:index.php");
     }
