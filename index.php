@@ -23,7 +23,7 @@ if(isset($_GET["btnEntrar"])){
         $_SESSION['senha'] = $senha;
         header("location:home.php");
     } else {
-        header("location:index.php");
+        echo "<script>"."alert('Dados incorretos! Tente novamente.')"."</script>";
     }
 
 }
@@ -47,11 +47,11 @@ if(isset($_GET["btnEntrar"])){
                 <form name="frmLogin" action="index.php" method="get">
                         <div class="titulo">Usuário:</div>
                         <div class="campo">
-                            <input class="caixa" type="text" name="txtEmail">
+                            <input class="caixa" type="text" name="txtEmail" required>
                         </div>
                         <div class="titulo">Senha:</div>
                         <div class="campo">
-                                <input class="caixa" type="password" name="txtSenha">
+                                <input class="caixa" type="password" name="txtSenha" required>
                         </div>
                             <input class="botao" type="submit" name="btnEntrar" value="ENTRAR"/>
                         <div id="referencia">
