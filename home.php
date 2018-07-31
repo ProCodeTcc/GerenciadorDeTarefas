@@ -1,4 +1,5 @@
 <?php
+   <?php
     include("conexao.php");
     $conexao = conectar();
     session_start();
@@ -65,27 +66,35 @@
     }
  ?>
 
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/styleHome.css">
+    <link rel="stylesheet" href="css/styleCadastroUsuario.css">
     <title>Home</title>
   </head>
   <body>
-     <!-- parte do header, onde fica area de logout e mensagem de boas vindas-->
     <header>
-      Gerenciador de Tarefas
-      <div class="informacoes">
+        <div id="cabacalho">
+            Gerenciador de Tarefas
+        </div>
+        <div class="informacoes">
           Bem Vindo, <?php echo $_SESSION['nome']; ?>
-          <p class="sair">
-              <a href="home.php?modo=sair" <?php sair() ?>>Sair</a>
-          </p>
       </div>
+        <div id="botao_sair">
+                <a class="menu" href="home.php?modo=sair" <?php sair() ?>>
+                    <div class="sair">
+                        Sair
+                    </div>  
+                </a>
+            </div>
     </header>
     <main>
-        <!-- seção que fica o cadastro de tarefas -->
-      <div class="espacamento"></div>
+      
+
+    <div class="espacamento"></div>
+        
       <section class="containerCadastro">
         <div class="tituloContainer">
           Cadastro de Tarefas
@@ -96,21 +105,22 @@
                     <div class="tituloContainer">
                         Titulo
                     </div>
-                    <input type="text" name="txtTitulo" value="<?php echo $titulo; ?>" class="input" required>
+                    <input type="text" name="txtTitulo" value="<?php echo $titulo; ?>" class="caixa_titulo" required>
                 </div>
                 <div class="campos">
                     <div class="tituloContainer">
                         Descrição
                     </div>
-                    <textarea name="txtDescricao" rows="6" cols="50" required><?php echo $descricao; ?></textarea>
+                    <textarea id="txt_area" name="txtDescricao" rows="6" cols="50" required><?php echo $descricao; ?></textarea>
                 </div>
-                <div class="botao">
-                    <input type="submit" name="btnSalvar" value="<?php echo $botao; ?>" class="botaoStyle">
-                </div>
+                    <div id="area_botao">
+                        <div id="area">
+                            <input type="submit" name="btnSalvar" value="<?php echo $botao; ?>" class="botao_tarefa">
+                        </div>
+                    </div>
             </section>
         </form>
       </section>
-      <!-- seção que fica a tabela, que mostra as tarefas já cadastradas -->
       <section class="containerLista">
         <div class="tituloContainer">
           Lista de Tarefas
@@ -129,8 +139,7 @@
             </div>
             <div class="caixaTarefas">
                 <?php
-                // este select traz as tarefas cadastradas do usuario
-                    $sql = "select * from tbl_tarefa WHERE idUsuario =".$_SESSION["idUsuario"];
+                    $sql = "select * from tbl_tarefa";
                     $result = mysqli_query($conexao, $sql);
                     while($tarefas = mysqli_fetch_array($result)){
                  ?>
@@ -142,11 +151,11 @@
                         <?php echo $tarefas['descricao']; ?>
                     </div>
                     <div class="opcoesTarefa">
-                        <a href="home.php?modo=consultar&id=<?php echo $tarefas['id']; ?>">
+                        <a class = "menu" href="home.php?modo=consultar&id=<?php echo $tarefas['id']; ?>">
                             Editar
                         </a>
                         |
-                        <a href="home.php?modo=excluir&id=<?php echo $tarefas['id']; ?>" onclick="return confirm('Deseja realmente excluir essa tarefa?')">
+                        <a class = "menu" href="home.php?modo=excluir&id=<?php echo $tarefas['id']; ?>">
                             Excluir
                         </a>
                     </div>
@@ -156,7 +165,6 @@
         </div>
       </section>
     </main>
-    <!-- parte do rodapé -->
     <footer>
       © COPYRIGHT 2018 - ProCode S.A, TODOS OS DIREITOS RESERVADOS.
     </footer>

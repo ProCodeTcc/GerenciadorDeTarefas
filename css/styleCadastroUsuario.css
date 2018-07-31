@@ -94,7 +94,6 @@
 
 /************************** CSS Gui ***************************/
 
-
 #centro{
     
     width: 300px;
@@ -116,4 +115,265 @@
     
 }
 
+/************************** CSS Arthur ***************************/
 
+body{
+  padding: 0px;
+  margin: 0px;
+  background-color: #b4e2b3;
+    font-family: sans-serif;
+}
+
+header{
+  width: 100%;
+  height: 150px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  font-size: 55px;
+  line-height: 150px;
+  vertical-align: middle;
+}
+
+#cabacalho{
+    width: 80%;
+    height: 150px;
+    float: left;
+}
+
+.informacoes{
+    width: 20%;
+    height: 90px;
+    float: left;
+    font-size: 22px;
+    float: left;
+}
+
+#botao_sair{
+    width: 100px;
+    height: 50px;
+    float: left;
+    margin-left: 150px;
+    margin-top: 5px;
+}
+
+.sair{
+    width: 100px;
+    height: 40px;
+    background-color: #aa0b0b;
+    border: solid 1px #a20909;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.sair:hover{
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: red;
+}
+
+main{
+  width: 60%;
+  height: 747px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.espacamento{
+  width: 100%;
+  height: 20px;
+}
+
+.containerCadastro{
+  width: 95%;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #cecece;
+}
+
+.tituloContainer{
+    width: 100%;
+    height: 40px;
+    background-color: #dcdcdc;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.containerCampos{
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.campos{
+    width: 49%;
+    height: 150px;
+    float: left;
+/*    background-color: #cdcdcd;*/
+    margin-left: 5px;
+}
+
+.caixa_titulo{
+    width: 98%;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px #b9b6b6;
+    margin-left: 5px;
+    margin-top: 35px;
+}
+
+#txt_area{
+    width: 98%;
+    height: 95px;
+    margin-top: 5px;
+    margin-left: 5px;
+    resize: none;
+    border-radius: 5px;
+    border: solid 1px #b9b6b6;
+}
+
+#area_botao{
+    width: 100%;
+    height: 40px;
+    float: left;
+    padding-top: 5xp;
+/*    padding-left: 400px;*/
+}
+
+#area{
+    width: 100px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botao_tarefa{
+    width: 100px;
+    height: 40px;
+    background-color: #28a745;
+    border: solid 1px #28a745;
+    color: white;
+    border-radius: 3px;
+    font-size: 16px; 
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.botao_tarefa:hover{
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: green;
+}
+
+.containerLista{
+  width: 95%;
+  height: 410px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+.tabela{
+    width: 100%;
+    height: 330px;
+    background-color: #dcdcdc;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.linhaTitulo{
+    width: 100%;
+    height: 50px;
+}
+
+.caixaTitulo{
+    width: 40%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 5px;
+}
+
+.opcoes{
+    width: 16%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 5px;
+}
+
+.caixaTarefas{
+    width: 100%;
+    height: 280px;
+    overflow: auto;
+}
+
+.linhaTarefa{
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: white;
+}
+
+.caixaTarefa{
+    width: 40%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 20px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.opcoesTarefa{
+    width: 16%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 5px;
+}
+
+.menu{
+  text-decoration: none;
+  color: white;  
+}
+
+footer{
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+}
