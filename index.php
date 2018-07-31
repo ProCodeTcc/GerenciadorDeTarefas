@@ -17,7 +17,9 @@ if(isset($_GET["btnEntrar"])){
         $nome = $usuario['nome'];
         $email = $usuario['email'];
         $senha = $usuario['senha'];
+        $idUsuario = $usuario['id'];
 
+        $_SESSION['idUsuario'] = $idUsuario;
         $_SESSION['nome'] = $nome;
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;

@@ -1,5 +1,4 @@
 <?php
-    // require_once "verificacao.php";
     include("conexao.php");
     $conexao = conectar();
     session_start();
@@ -11,24 +10,31 @@
     $descricao = "";
     $botao = "Salvar";
 
+    // verificando se o botao foi clicado
     if (isset($_POST['btnSalvar'])) {
+        //resgatando dos inputs os valores
         $titulo = $_POST['txtTitulo'];
         $descricao = $_POST['txtDescricao'];
 
+        //verificando qual a situação do botão para decidir qual comando será executado
         if($_GET['botao'] == "Salvar"){
-            $sql = "INSERT INTO tbl_tarefa (nome, descricao) VALUES ('".$titulo."', '".$descricao."')";
+            $sql = "INSERT INTO tbl_tarefa (nome, descricao, idUsuario) VALUES ('".$titulo."', '".$descricao."', ".$_SESSION['idUsuario'].")";
         } else if($_GET['botao'] == "Editar"){
             $sql = "UPDATE tbl_tarefa SET
             nome = '".$titulo."',
             descricao = '".$descricao."'
             WHERE id = ".$_SESSION['idSessao'];
         }
+        // executando o comando e redirecionando a pagina
         mysqli_query($conexao, $sql);
         header('location:home.php');
     }
 
+    // verificando se existe a variavel 'modo' na url
     if (isset($_GET['modo'])) {
         $modo = $_GET['modo'];
+
+        // verificando o valor da variavel e decidindo o que fazer a partir desta informação
         if($modo == 'excluir'){
             $id = $_GET['id'];
             $sql = "DELETE FROM tbl_tarefa WHERE (id = '".$id."');";
@@ -47,6 +53,7 @@
         }
     }
 
+    // função que faz logout do sistema
     function sair() {
         if (isset($_GET['modo'])) {
             $modo = $_GET['modo'];
@@ -56,7 +63,6 @@
             }
         }
     }
-
  ?>
 
 <!DOCTYPE html>
@@ -67,6 +73,7 @@
     <title>Home</title>
   </head>
   <body>
+     <!-- parte do header, onde fica area de logout e mensagem de boas vindas-->
     <header>
       Gerenciador de Tarefas
       <div class="informacoes">
@@ -77,6 +84,7 @@
       </div>
     </header>
     <main>
+        <!-- seção que fica o cadastro de tarefas -->
       <div class="espacamento"></div>
       <section class="containerCadastro">
         <div class="tituloContainer">
@@ -102,6 +110,7 @@
             </section>
         </form>
       </section>
+      <!-- seção que fica a tabela, que mostra as tarefas já cadastradas -->
       <section class="containerLista">
         <div class="tituloContainer">
           Lista de Tarefas
@@ -116,11 +125,13 @@
                 </div>
                 <div class="opcoes">
                     Opções
+                    <?php echo $_SESSION["idUsuario"]; ?>
                 </div>
             </div>
             <div class="caixaTarefas">
                 <?php
-                    $sql = "select * from tbl_tarefa";
+                // este select traz as tarefas cadastradas do usuario
+                    $sql = "select * from tbl_tarefa WHERE idUsuario =".$_SESSION["idUsuario"];
                     $result = mysqli_query($conexao, $sql);
                     while($tarefas = mysqli_fetch_array($result)){
                  ?>
@@ -136,7 +147,7 @@
                             Editar
                         </a>
                         |
-                        <a href="home.php?modo=excluir&id=<?php echo $tarefas['id']; ?>">
+                        <a href="home.php?modo=excluir&id=<?php echo $tarefas['id']; ?>" onclick="return confirm('Deseja realmente excluir essa tarefa?')">
                             Excluir
                         </a>
                     </div>
@@ -146,6 +157,7 @@
         </div>
       </section>
     </main>
+    <!-- parte do rodapé -->
     <footer>
       © COPYRIGHT 2018 - ProCode S.A, TODOS OS DIREITOS RESERVADOS.
     </footer>
