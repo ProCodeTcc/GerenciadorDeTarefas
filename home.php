@@ -125,7 +125,6 @@
                 </div>
                 <div class="opcoes">
                     Opções
-                    <?php echo $_SESSION["idUsuario"]; ?>
                 </div>
             </div>
             <div class="caixaTarefas">
