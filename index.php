@@ -25,7 +25,7 @@ if(isset($_GET["btnEntrar"])){
         $_SESSION['senha'] = $senha;
         header("location:home.php");
     } else {
-        header("location:index.php");
+        echo "<script>"."alert('Dados incorretos! Tente novamente.')"."</script>";
     }
 
 }
@@ -35,45 +35,32 @@ if(isset($_GET["btnEntrar"])){
 <html>
     <head>
         <title> Entrar | Gerenciador de Tarefas </title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/styleCadastroUsuario.css">
         <meta charset="utf-8">
     </head>
     <body>
-
-        <header>
-            <div id="centro">
-                <div id="titulo">
-                    Área de Login
+        <div id="content">
+            <div id="cadastro">
+                <div id="centro">
+                    <div id="titulo">
+                        Área de Login
+                    </div>
                 </div>
-            </div>
-        </header>
-
-            <div id="subtela">
-
                 <form name="frmLogin" action="index.php" method="get">
-                    <div id="login">
-                        <div class="cadastro">
-                            Usuário:
-                            <div class="dados">
-                                <input class="input" type="text" name="txtEmail">
-                            </div>
+                        <div class="titulo">Usuário:</div>
+                        <div class="campo">
+                            <input class="caixa" type="text" name="txtEmail" required>
                         </div>
-                        <div class="cadastro">
-                            Senha:
-                            <div class="dados">
-                                <input class="input" type="password" name="txtSenha">
-                            </div>
+                        <div class="titulo">Senha:</div>
+                        <div class="campo">
+                                <input class="caixa" type="password" name="txtSenha" required>
                         </div>
-                        <div class="cadastro">
-                            <input id="botao" type="submit" name="btnEntrar" value="entrar"/>
-                        </div>
+                            <input class="botao" type="submit" name="btnEntrar" value="ENTRAR"/>
                         <div id="referencia">
-                            <a id="link" href="cadastro.php">Quero me cadastrar</a>
+                            <a href="cadastro.php">Quero me cadastrar</a>
                         </div>
-                    </div>'
                 </form>
             </div>
-
-
+        </div>
     </body>
 </html>
