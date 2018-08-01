@@ -200,7 +200,6 @@ main{
 .tituloContainer{
     width: 100%;
     height: 40px;
-    background-color: #dcdcdc;
     text-align: center;
     line-height: 40px;
     vertical-align: middle;
@@ -234,7 +233,7 @@ main{
 }
 
 #txt_area{
-    width: 98%;
+    width: 96%;
     height: 95px;
     margin-top: 5px;
     margin-left: 5px;

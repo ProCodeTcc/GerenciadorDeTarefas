@@ -1,10 +1,8 @@
 <?php
-   <?php
     include("conexao.php");
     $conexao = conectar();
     session_start();
     require_once "verificacao.php";
-
 
     $id="";
     $titulo = "";
@@ -27,6 +25,7 @@
             WHERE id = ".$_SESSION['idSessao'];
         }
         // executando o comando e redirecionando a pagina
+//        echo($sql);
         mysqli_query($conexao, $sql);
         header('location:home.php');
     }
@@ -122,10 +121,10 @@
         </form>
       </section>
       <section class="containerLista">
-        <div class="tituloContainer">
-          Lista de Tarefas
-        </div>
         <div class="tabela">
+            <div class="tituloContainer">
+                Lista de Tarefas
+            </div>
             <div class="linhaTitulo">
                 <div class="caixaTitulo">
                     Titulo da Tarefa
