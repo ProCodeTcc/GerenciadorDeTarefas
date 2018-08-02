@@ -17,7 +17,7 @@
 
         //verificando qual a situação do botão para decidir qual comando será executado
         if($_GET['botao'] == "Salvar"){
-            $sql = "INSERT INTO tbl_tarefa (nome, descricao, idUsuario) VALUES ('".$titulo."', '".$descricao."', ".$_SESSION['idUsuario'].")";
+            $sql = "INSERT INTO tbl_tarefa(nome, descricao, idUsuario) VALUES('".$titulo."', '".$descricao."', ".$_SESSION['idUsuario'].")";
         } else if($_GET['botao'] == "Editar"){
             $sql = "UPDATE tbl_tarefa SET
             nome = '".$titulo."',
