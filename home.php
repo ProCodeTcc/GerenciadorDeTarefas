@@ -78,7 +78,7 @@
         <div id="logo">
         </div>
         <div id="cabacalho">
-            
+
             Gerenciador de Tarefas
         </div>
         <div id="teste">
@@ -90,18 +90,18 @@
                 <a class="menu" href="home.php?modo=sair" <?php sair() ?>>
                     <div class="sair">
                         Sair
-                    </div>  
+                    </div>
                 </a>
             </div>
         </div>
-        
+
     </header>
       <div id="content_home">
     <main>
-      
+
 
     <div class="espacamento"></div>
-        
+
       <section class="containerCadastro">
         <div class="tituloContainer">
           Cadastro de Tarefas
@@ -146,7 +146,7 @@
             </div>
             <div class="caixaTarefas">
                 <?php
-                    $sql = "select * from tbl_tarefa";
+                    $sql = "select * from tbl_tarefa WHERE idUsuario =".$_SESSION['idUsuario'];
                     $result = mysqli_query($conexao, $sql);
                     while($tarefas = mysqli_fetch_array($result)){
                  ?>
@@ -176,6 +176,6 @@
     <footer>
       © COPYRIGHT 2018 - ProCode S.A, TODOS OS DIREITOS RESERVADOS.
     </footer>
-    
+
   </body>
 </html>

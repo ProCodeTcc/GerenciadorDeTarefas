@@ -13,7 +13,8 @@
 
 
         if(mysqli_query($conexao,$sql)){
-            echo("<script> cadastroFeito() </script>");
+            echo("<script> setTimeout(function(){ alert('Cadastro efetuado com sucesso');
+            window.location.assign('index.php')}, 1000); </script>");
         }
 
     }
@@ -22,12 +23,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <title> Cadastro </title>
         <link href="css/styleCadastroUsuario.css" rel="stylesheet" type="text/css">
         <script>
-            function cadastroFeito(){
-                alert("Cadastro efetuado com sucesso");
-            }
         </script>
     </head>
     <body>
