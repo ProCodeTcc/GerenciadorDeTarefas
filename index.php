@@ -17,13 +17,15 @@ if(isset($_GET["btnEntrar"])){
         $nome = $usuario['nome'];
         $email = $usuario['email'];
         $senha = $usuario['senha'];
-
+        $id = $usuario['id'];
+        
         $_SESSION['nome'] = $nome;
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
+        $_SESSION['idUsuario'] = $id;
         header("location:home.php");
     } else {
-        header("location:index.php");
+        echo "<script>"."alert('Usuário ou Senha incorretos!! Verifique os dados e tente novamente.')"."</script>";
     }
 
 }
